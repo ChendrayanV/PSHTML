@@ -20,7 +20,7 @@ Context "Testing PSHTML" {
         $Id = "MyID"
         $Style = "Background:green"
         $CustomAtt = @{"MyAttribute1" = 'MyValue1'; "MyAttribute2" = "MyValue2"}
-        $string = blockquote {woop} -Attributes $CustomAtt -Style $Style -Class $class -id $id
+        $string = blockquote {'woop'} -Attributes $CustomAtt -Style $Style -Class $class -id $id
 
         if ($string -is [array]) {
             $string = $String -join ""
@@ -80,7 +80,7 @@ Context "Testing PSHTML" {
         }
 
         it "Testing content p{} in child element" {
-            $string -match "^.*<p></p>.*" | should be $true
+            $string -match "^.*<p.*></p>.*" | should be $true
         }
 
         it "Testing common parameters: Class" {
